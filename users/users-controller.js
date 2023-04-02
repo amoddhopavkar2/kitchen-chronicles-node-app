@@ -9,10 +9,19 @@ const UsersController = (app) => {
   };
   const createUser = async (req, res) => {
     const newUser = req.body;
+    console.log(newUser);
     const actualUser = await userDao.createUser(newUser);
     res.json(actualUser);
   };
-  const updateUser = () => {};
+
+  const updateUser = async (req, res) => {
+    const userIdToUpdate = req.params.uid;
+    const updates = req.body;
+    const status = await userDao.updateUser(userIdToUpdate, updates);
+    console.log(status);
+    res.json(status);
+  };
+
   const deleteUser = () => {};
 
   const register = async (req, res) => {
@@ -42,6 +51,7 @@ const UsersController = (app) => {
   };
 
   const logout = (req, res) => {
+    console.log(req.session);
     req.session.destroy();
     res.sendStatus(200);
   };
@@ -52,6 +62,13 @@ const UsersController = (app) => {
     } else {
       res.sendStatus(403);
     }
+  };
+
+  const updateProfile = async (req, res) => {
+    const newProfile = req.body;
+    req.session["currentUser"] = newProfile;
+    const status = await userDao.updateUser(newProfile._id, newProfile);
+    res.json(newProfile);
   };
 
   const findUserById = async (req, res) => {
@@ -73,6 +90,8 @@ const UsersController = (app) => {
   app.post("/register", register);
   app.post("/login", login);
   app.post("/logout", logout);
+
+  app.post("/profile/update", updateProfile);
   app.post("/profile", profile);
 };
 

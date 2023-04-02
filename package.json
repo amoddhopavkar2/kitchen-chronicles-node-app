@@ -1,18 +1,18 @@
 {
   "type": "module",
-  "name": "kitchen-chronicles-node-app",
+  "name": "kitchen-chronicles-node-server",
   "version": "1.0.0",
-  "description": "Kitchen Chronicles Node Server",
+  "description": "Node.js server for Kitchen Chronicles",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "amoddhopavkar2",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.0.3"
+    "mongoose": "^6.8.0"
   }
 }
