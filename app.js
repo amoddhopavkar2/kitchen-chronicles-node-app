@@ -1,14 +1,14 @@
 import express from "express";
-import MealDBController from "./mealdb/mealdb-controller.js";
-import UsersController from "./users/users-controller.js";
+import MealDBController from "./controllers/mealdb/mealdb-controller.js";
+import UsersController from "./controllers/users/users-controller.js";
 import cors from "cors";
 import mongoose from "mongoose";
 import session from "express-session";
-import BlogsController from "./blogs/blog-controller.js";
-import LikesController from "./likes/likes-controller.js";
-import ReviewsController from "./reviews/reviews-controller.js";
+import BlogsController from "./controllers/blogs/blog-controller.js";
+import LikesController from "./controllers/likes/likes-controller.js";
+import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import SessionController from "./session-controller.js";
-import FollowsController from "./follows/follows-controller.js";
+import FollowsController from "./controllers/follows/follows-controller.js";
 
 const options = {
   useNewUrlParser: true,

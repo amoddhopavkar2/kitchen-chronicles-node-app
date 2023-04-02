@@ -16,7 +16,6 @@ const findAllMeal = (req, res) => {
 const MealDBController = (app) => {
   app.get("/meal", findAllMeal);
   app.get("/meal/random/", findRandomMeal);
-
   app.get("/meal/:mid", findMealById);
 };
 
