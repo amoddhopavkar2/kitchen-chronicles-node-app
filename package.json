@@ -1,12 +1,14 @@
 {
+  "type": "module",
   "name": "kitchen-chronicles-node-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Kitchen Chronicles Node Server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "amoddhopavkar2",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
