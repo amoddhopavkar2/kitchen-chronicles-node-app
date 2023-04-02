@@ -24,12 +24,7 @@ const CONNECTION_STRING = "mongodb://localhost:27017/foodalgorithms";
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:3002",
-  })
-);
+app.use(cors());
 app.use(
   session({
     secret: "should be an environment variable",
