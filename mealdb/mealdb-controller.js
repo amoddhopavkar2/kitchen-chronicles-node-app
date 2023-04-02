@@ -3,8 +3,12 @@ const MealDBController = (app) => {
   app.get("api/meal/random", findMealById);
 };
 
-const findMealById = (req, res) => {};
+const findMealById = (req, res) => {
+  res.send("hi");
+};
 
-const findRandomMeal = (req, res) => {};
+const findRandomMeal = (req, res) => {
+  res.send("h1");
+};
 
 export default MealDBController;
