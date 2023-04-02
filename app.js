@@ -1,9 +1,7 @@
 import express from "express";
+import MealDBController from "./mealdb/mealdb-controller";
 const app = express();
-app.get("/hello", (req, res) => {
-  res.send("Life is good!");
-});
-app.get("/", (req, res) => {
-  res.send("Welcome to Full Stack Development!");
-});
+
+MealDBController(app);
+
 app.listen(4000);
