@@ -1,3 +1,4 @@
+require("dotenv").config();
 import express from "express";
 import MealDBController from "./controllers/mealdb/mealdb-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
@@ -20,7 +21,7 @@ const options = {
   family: 4,
 };
 
-const CONNECTION_STRING = "mongodb://localhost:27017/foodalgorithms";
+const CONNECTION_STRING = process.env.CONNECTION_STRING || "mongodb://localhost:27017/foodalgorithms";
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
