@@ -36,10 +36,9 @@ app.use(cors({
 
 app.use(
   session({
-    secret: "should be an environment variable",
+    secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
   })
 );
 app.use(express.json());
