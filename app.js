@@ -1,4 +1,3 @@
-require("dotenv").config();
 import express from "express";
 import MealDBController from "./controllers/mealdb/mealdb-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
@@ -10,6 +9,9 @@ import LikesController from "./controllers/likes/likes-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import SessionController from "./session-controller.js";
 import FollowsController from "./controllers/follows/follows-controller.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const options = {
   useNewUrlParser: true,
@@ -21,7 +23,7 @@ const options = {
   family: 4,
 };
 
-const CONNECTION_STRING = process.env.CONNECTION_STRING || "mongodb://localhost:27017/foodalgorithms";
+const CONNECTION_STRING = process.env.CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
