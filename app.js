@@ -27,7 +27,10 @@ const CONNECTION_STRING = process.env.CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3002'
+}))
 app.use(
   session({
     secret: "should be an environment variable",
