@@ -27,10 +27,13 @@ const CONNECTION_STRING = process.env.CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
+
+const allowedOrigins = ['http://localhost:3002', 'https://leafy-gumption-a6a15e.netlify.app/'];
 app.use(cors({
-  credentials: false,
-  origin: '*'
+  credentials: true,
+  origin: allowedOrigins
 }))
+
 app.use(
   session({
     secret: "should be an environment variable",
