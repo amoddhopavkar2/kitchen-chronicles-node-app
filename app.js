@@ -29,7 +29,7 @@ mongoose.connect(CONNECTION_STRING, options);
 const app = express();
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:3002'
+  origin: '*'
 }))
 app.use(
   session({
