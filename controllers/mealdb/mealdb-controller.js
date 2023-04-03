@@ -1,4 +1,8 @@
-const API_LINK = "https://www.themealdb.com/api/json/v1/1/";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const API_LINK = process.env.API_LINK;
 
 const findMealById = (req, res) => {
   res.send("hi");
