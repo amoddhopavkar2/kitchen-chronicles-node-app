@@ -23,7 +23,7 @@ const options = {
   family: 4,
 };
 
-const CONNECTION_STRING = process.env.CONNECTION_STRING;
+const CONNECTION_STRING = process.env.CONNECTION_STRING || "mongodb+srv://dhopavkaram:nms02021999@kitchen-chronicles.bquq70c.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();

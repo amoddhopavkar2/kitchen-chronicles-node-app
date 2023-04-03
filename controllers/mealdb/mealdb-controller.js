@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const API_LINK = process.env.API_LINK;
+const API_LINK = process.env.API_LINK || "https://www.themealdb.com/api/json/v1/1/";
 
 const findMealById = (req, res) => {
   res.send("hi");
