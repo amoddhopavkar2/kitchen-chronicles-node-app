@@ -18,3 +18,5 @@ export const updateUser = async (uid, userUpdates) =>
 
 export const findUserById = (uid) =>
   usersModel.findById(uid, { password: false });
+
+export const aggregateUsers = async (user) => await usersModel.aggregate(user);
