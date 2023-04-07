@@ -9,6 +9,7 @@ import LikesController from "./controllers/likes/likes-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import SessionController from "./session-controller.js";
 import FollowsController from "./controllers/follows/follows-controller.js";
+import AdminController from "./controllers/admin/admin-controller.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -50,5 +51,6 @@ LikesController(app);
 ReviewsController(app);
 SessionController(app);
 FollowsController(app);
+AdminController(app);
 
 app.listen(4000);

@@ -81,44 +81,6 @@ const UsersController = (app) => {
     res.sendStatus(404);
   };
 
-  const getUserStats = async (req, res) => {
-    const today = new Date();
-    const lastYear = today.setFullYear(today.setFullYear() - 1);
-    const monthsArray = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    try {
-      const data = await userDao.aggregateUsers([
-        {
-          $project: {
-            month: { $month: "$createdAt" },
-          },
-        },
-        {
-          $group: {
-            _id: "$month",
-            total: { $sum: 1 },
-          },
-        },
-      ]);
-      res.status(200).json(data);
-    } catch (error) {
-      res.status(500).json(error);
-    }
-  };
-
   app.get("/users", findAllUsers);
   app.get("/users/:uid", findUserById);
   app.post("/users", createUser);
@@ -131,7 +93,6 @@ const UsersController = (app) => {
 
   app.post("/profile/update", updateProfile);
   app.post("/profile", profile);
-  app.get("/stats", getUserStats)
 };
 
 export default UsersController;
