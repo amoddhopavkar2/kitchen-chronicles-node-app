@@ -29,7 +29,7 @@ mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'https://leafy-gumption-a6a15e.netlify.app/'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'https://leafy-gumption-a6a15e.netlify.app'];
 app.use(cors({
   credentials: true,
   origin: allowedOrigins
