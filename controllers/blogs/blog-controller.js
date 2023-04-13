@@ -37,10 +37,17 @@ const BlogsController = (app) => {
     res.json(allBlogs);
   };
 
+  const deleteBlog = async (req, res) => {
+    const blogToDelete = req.params.bid;
+    const status = await blogsDao.deleteBlog(blogToDelete);
+    res.josn(status);
+  };
+
   app.post("/blog", createBlog);
   app.get("/blog/:bid", findBlogById);
   app.get("/blog", findAllBlogs);
   app.get("/blog/user/:uid", findAllBlogs);
+  app.delete("/blog/:bid", deleteBlog);
 };
 
 export default BlogsController;

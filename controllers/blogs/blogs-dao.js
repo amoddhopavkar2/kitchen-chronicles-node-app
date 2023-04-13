@@ -7,6 +7,7 @@ export const findBlogById = (bid) => blogsModel.findById(bid);
 export const findAllBlogs = (bid) => blogsModel.find().sort("-time").exec();
 
 export const findBlogByUserId = (uid) => {
-  console.log(uid);
   blogsModel.find({ "author.authorId": uid });
 };
+
+export const deleteBlog = (bid) => blogsModel.deleteOne({ _id: bid });
