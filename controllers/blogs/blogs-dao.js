@@ -1,4 +1,3 @@
-import e from "express";
 import blogsModel from "./blogs-model.js";
 
 export const createBlog = (blog) => blogsModel.create(blog);

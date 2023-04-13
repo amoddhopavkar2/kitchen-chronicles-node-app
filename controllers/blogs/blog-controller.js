@@ -29,6 +29,7 @@ const BlogsController = (app) => {
     const allBlogs = await blogsDao.findAllBlogs();
     res.json(allBlogs);
   };
+
   const findBlogByUserId = async (req, res) => {
     const uid = req.params.uid;
     const allBlogs = await blogsDao.findBlogByUserId(uid);
@@ -41,4 +42,5 @@ const BlogsController = (app) => {
   app.get("/blog", findAllBlogs);
   app.get("/blog/user/:uid", findAllBlogs);
 };
+
 export default BlogsController;
