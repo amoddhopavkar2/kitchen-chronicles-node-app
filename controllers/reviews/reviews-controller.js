@@ -32,15 +32,24 @@ const ReviewsController = (app) => {
     const reviews = await dao.findReviewsByFood(idMeal);
     res.send(reviews);
   };
+
   const findReviewsByAuthor = async (req, res) => {
     const author = req.params.author;
     const reviews = await dao.findReviewsByAuthor(author);
     res.json(reviews);
   };
+
+  const findAllReviews = async (req, res) => {
+    const reviews = await dao.findAllReviews();
+    res.json(reviews);
+  };
+
   app.post("/api/reviews/meal/:idMeal", createReview);
   app.put("/api/reviews/meal/:idMeal", updateReview);
   app.delete("/api/reviews/meal/:idMeal", deleteReview);
   app.get("/api/reviews/meal/:idMeal", findReviewsByFood);
   app.get("/api/users/:author/reviews", findReviewsByAuthor);
+  app.get("/api/reviews/all", findAllReviews);
 };
+
 export default ReviewsController;

@@ -16,3 +16,5 @@ export const findReviewsByAuthor = (author) =>
 
 export const deleteReview = (reviewID) =>
   reviewsModel.deleteOne({ _id: reviewID });
+
+export const findAllReviews = () => reviewsModel.find();
