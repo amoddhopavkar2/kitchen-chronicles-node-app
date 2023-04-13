@@ -49,7 +49,7 @@ const ReviewsController = (app) => {
   app.delete("/api/reviews/meal/:idMeal", deleteReview);
   app.get("/api/reviews/meal/:idMeal", findReviewsByFood);
   app.get("/api/users/:author/reviews", findReviewsByAuthor);
-  app.get("/api/reviews/all", findAllReviews);
+  app.get("/api/reviews", findAllReviews);
 };
 
 export default ReviewsController;
