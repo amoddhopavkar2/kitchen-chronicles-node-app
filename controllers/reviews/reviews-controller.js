@@ -24,7 +24,7 @@ const ReviewsController = (app) => {
   const deleteReview = async (req, res) => {
     const reviewID = req.params.idMeal;
     const response = await dao.deleteReview(reviewID);
-    res.json({ reviewID });
+    res.json(response);
   };
 
   const findReviewsByFood = async (req, res) => {
