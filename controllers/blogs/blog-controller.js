@@ -40,7 +40,7 @@ const BlogsController = (app) => {
   const deleteBlog = async (req, res) => {
     const blogToDelete = req.params.bid;
     const status = await blogsDao.deleteBlog(blogToDelete);
-    res.josn(status);
+    res.json(status);
   };
 
   app.post("/blog", createBlog);
