@@ -4,7 +4,7 @@ const likesSchema = mongoose.Schema(
   {
     idMeal: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "UserModel" },
-    liked: { type: Boolean, default: false },
+    liked: { type: Boolean, default: true },
   },
   { collection: "likes" }
 );
