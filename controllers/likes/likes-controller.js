@@ -27,7 +27,7 @@ const LikesController = (app) => {
 
   app.post("/users/likes/:idMeal", createLike);
   app.get("/users/:userId/likes", findLikesByUser);
-  app.delete("/users/likes/:userId/:idMeal", deleteLike);
+  app.delete("/users/:userId/likes/:idMeal", deleteLike);
 };
 
 export default LikesController;
