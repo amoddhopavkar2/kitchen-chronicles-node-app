@@ -18,8 +18,16 @@ const LikesController = (app) => {
     res.json(likes);
   };
 
+  const deleteLike = async (req, res) => {
+    const user = req.params.userId;
+    const mealID = req.params.idMeal;
+    const response = await likesDao.deleteLike(user, mealID);
+    res.json(response);
+  }
+
   app.post("/users/likes/:idMeal", createLike);
   app.get("/users/:userId/likes", findLikesByUser);
+  app.delete("/users/likes/:userId/:idMeal", deleteLike);
 };
 
 export default LikesController;
