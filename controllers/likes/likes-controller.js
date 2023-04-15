@@ -13,13 +13,13 @@ const LikesController = (app) => {
   };
 
   const findLikesByUser = async (req, res) => {
-    const user = req.params.user;
+    const user = req.params.userId;
     const likes = await likesDao.findLikesByUser(user);
     res.json(likes);
   };
 
   app.post("/users/likes/:idMeal", createLike);
-  app.get("users/:uid/likes", findLikesByUser);
+  app.get("/users/:userId/likes", findLikesByUser);
 };
 
 export default LikesController;
