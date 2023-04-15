@@ -24,20 +24,27 @@ const options = {
   family: 4,
 };
 
-const CONNECTION_STRING = process.env.CONNECTION_STRING || "mongodb+srv://dhopavkaram:nms02021999@kitchen-chronicles.bquq70c.mongodb.net/kitchen-chronicles?retryWrites=true&w=majority";
+const CONNECTION_STRING =
+  process.env.CONNECTION_STRING ||
+  "mongodb+srv://dhopavkaram:nms02021999@kitchen-chronicles.bquq70c.mongodb.net/kitchen-chronicles?retryWrites=true&w=majority";
 mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'https://leafy-gumption-a6a15e.netlify.app/'];
-app.use(cors({
-  credentials: true,
-  origin: allowedOrigins
-}))
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://leafy-gumption-a6a15e.netlify.app",
+];
+app.use(
+  cors({
+    credentials: true,
+    origin: allowedOrigins,
+  })
+);
 
 app.use(
   session({
-    secret: 'your-secret-key',
+    secret: "your-secret-key",
     resave: false,
     saveUninitialized: true,
   })
