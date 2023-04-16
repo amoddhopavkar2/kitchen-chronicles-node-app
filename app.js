@@ -36,6 +36,7 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',
   'https://leafy-gumption-a6a15e.netlify.app',
+  /netlify\.app$/,
 ];
 app.use(
   cors({
