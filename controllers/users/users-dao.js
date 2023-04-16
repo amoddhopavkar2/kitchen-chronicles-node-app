@@ -1,4 +1,4 @@
-import usersModel from "./users-model.js";
+import { usersModel, adminModel, bloggerModel } from './users-model.js';
 
 export const createUser = async (user) => await usersModel.create(user);
 
@@ -18,3 +18,26 @@ export const updateUser = async (uid, userUpdates) =>
 
 export const findUserById = (uid) =>
   usersModel.findById(uid, { password: false });
+
+// Admin DAO
+export const createAdminUser = async (user) => await adminModel.create(user);
+
+export const findAdminUserByUsername = async (username) =>
+  await adminModel.findOne({ username });
+
+export const findAllAdmins = async () => await adminModel.find();
+
+export const deleteAdmin = async (uid) =>
+  await adminModel.deleteOne({ _id: uid });
+
+// Blogger DAO
+export const createBloggerUser = async (user) =>
+  await bloggerModel.create(user);
+
+export const findBloggerByUsername = async (username) =>
+  await bloggerModel.findOne({ username });
+
+export const findAllBloggers = async () => await bloggerModel.find();
+
+export const updateBloggerUser = async (uid, userUpdates) =>
+  await bloggerModel.updateOne({ _id: uid }, { $set: userUpdates });

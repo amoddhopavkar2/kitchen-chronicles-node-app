@@ -1,16 +1,16 @@
-import express from "express";
-import MealDBController from "./controllers/mealdb/mealdb-controller.js";
-import UsersController from "./controllers/users/users-controller.js";
-import cors from "cors";
-import mongoose from "mongoose";
-import session from "express-session";
-import BlogsController from "./controllers/blogs/blog-controller.js";
-import LikesController from "./controllers/likes/likes-controller.js";
-import ReviewsController from "./controllers/reviews/reviews-controller.js";
-import SessionController from "./session-controller.js";
-import FollowsController from "./controllers/follows/follows-controller.js";
-import AdminController from "./controllers/admin/admin-controller.js";
-import dotenv from "dotenv";
+import express from 'express';
+import MealDBController from './controllers/mealdb/mealdb-controller.js';
+import UsersController from './controllers/users/users-controller.js';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import session from 'express-session';
+import BlogsController from './controllers/blogs/blog-controller.js';
+import LikesController from './controllers/likes/likes-controller.js';
+import ReviewsController from './controllers/reviews/reviews-controller.js';
+import SessionController from './session-controller.js';
+import FollowsController from './controllers/follows/follows-controller.js';
+import AdminController from './controllers/admin/admin-controller.js';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -26,14 +26,16 @@ const options = {
 
 const CONNECTION_STRING =
   process.env.CONNECTION_STRING ||
-  "mongodb+srv://dhopavkaram:nms02021999@kitchen-chronicles.bquq70c.mongodb.net/kitchen-chronicles?retryWrites=true&w=majority";
-mongoose.connect(CONNECTION_STRING, options);
+  'mongodb+srv://dhopavkaram:nms02021999@kitchen-chronicles.bquq70c.mongodb.net/kitchen-chronicles?retryWrites=true&w=majority';
+mongoose.connect(CONNECTION_STRING, options).then(() => {
+  console.log('Connected to MongoDB!');
+});
 
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:3000",
-  "https://leafy-gumption-a6a15e.netlify.app",
+  'http://localhost:3000',
+  'https://leafy-gumption-a6a15e.netlify.app',
 ];
 app.use(
   cors({
@@ -44,7 +46,7 @@ app.use(
 
 app.use(
   session({
-    secret: "your-secret-key",
+    secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true,
   })
@@ -60,4 +62,6 @@ SessionController(app);
 FollowsController(app);
 AdminController(app);
 
-app.listen(4000);
+app.listen(4000, () => {
+  console.log('Server listening on port 4000!');
+});
