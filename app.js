@@ -1,5 +1,4 @@
 import express from "express";
-import MealDBController from "./controllers/mealdb/mealdb-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -52,7 +51,6 @@ app.use(
 );
 app.use(express.json());
 
-MealDBController(app);
 BlogsController(app);
 UsersController(app);
 LikesController(app);
